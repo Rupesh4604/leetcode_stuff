@@ -5,8 +5,9 @@ class Solution:
         for char in s:
             if char=='(':
                 count += 1 
-            maxcount = max(maxcount,count)
-            if char==')':
+            elif char==')':
                 if count:
                     count -=1
+            if count > maxcount :
+                maxcount = count 
         return maxcount 
