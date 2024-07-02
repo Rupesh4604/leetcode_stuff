@@ -3,10 +3,11 @@ class Solution:
         res = []
         ds = dict()
         for elem in nums1:
-            if elem in ds:
-                ds[elem]+=1
-            else:
-                ds[elem] = 1
+            ds[elem] = ds.get(elem,0) + 1
+            # if elem in ds:
+            #     ds[elem]+=1
+            # else:
+            #     ds[elem] = 1
         for elem in nums2:
             if elem in ds:
                 ds[elem]-=1
