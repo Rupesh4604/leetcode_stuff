@@ -30,14 +30,15 @@ class Solution:
                 if prevLast:
                     prevLast.next = temp
                 break
+            # remeber the next node and break the link
             nextNode = kThNode.next
             kThNode.next = None
 
             self.reverse(temp)
-            if temp == head:
+            if temp == head: # at start 
                 head = kThNode
             else:
-                prevLast.next = kThNode
-            prevLast = temp
+                prevLast.next = kThNode # remember the last node
+            prevLast = temp 
             temp = nextNode
         return head
