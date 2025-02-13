@@ -1,3 +1,4 @@
+from collections import defaultdict
 class Solution:
     def maximumSum(self, nums: List[int]) -> int:
         # Dictionary to store the numbers by their digit sum
