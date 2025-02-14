@@ -17,6 +17,7 @@ class Solution:
         
         if s1[t1]==s2[t2] and s1[t2]==s2[t1]: # works for both count=0 and count=2 
             return True
+        ## count=2 but different chars
         return False
 
 
