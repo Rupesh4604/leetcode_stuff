@@ -6,8 +6,8 @@ var createCounter = function(init) {
 
         let val = init;
         return {
-            increment: () => ++val,
-            decrement: () => --val ,
+            increment: () => val+=1,
+            decrement: () => val-=1,
             reset: () => val = init,
         }
 
