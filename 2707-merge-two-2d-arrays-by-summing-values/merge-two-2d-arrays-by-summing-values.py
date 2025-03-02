@@ -5,15 +5,13 @@ class Solution:
 
         for element in nums1:
             ds[element[0]] = element[1]
-        
-        for pair in nums2:
-            if pair[0] in ds:
-                ds[pair[0]] += pair[1]
-            else:
-                ds[pair[0]] = pair[1] 
-        
-        [ res.append([k,v]) for k,v in ds.items()]
 
+        ds = {element[0]: element[1] for element in nums1}
+
+        for pair in nums2:
+            ds[pair[0]] = ds.get(pair[0], 0) + pair[1] 
+
+        res = [[k, v] for k, v in ds.items()] 
         res.sort(key=lambda x: x[0])
 
         return res
