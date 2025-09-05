@@ -3,7 +3,7 @@ class Solution:
         n = len(intervals)
         ans = []
 
-        intervals.sort()
+        intervals.sort(key = lambda x: x[0])
 
         for i in range(n):
             if not ans or (intervals[i][0] > ans[-1][1]):
