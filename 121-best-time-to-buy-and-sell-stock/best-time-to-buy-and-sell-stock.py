@@ -1,13 +1,11 @@
-class Solution(object):
-    def maxProfit(self, prices):
-        """
-        :type prices: List[int]
-        :rtype: int
-        """
-        purchase = prices[0]
-        profit = 0
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        minElem = prices[0]
+        diff = 0
+
         for i in range(1,len(prices)):
-            if prices[i]<purchase:
-                purchase = prices[i] 
-            profit = max(profit,prices[i]-purchase)
-        return profit
+            if prices[i]<minElem:
+                minElem = prices[i]
+            diff = max(diff, prices[i]-minElem)
+        return diff
+
