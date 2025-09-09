@@ -11,7 +11,9 @@ class Solution:
                 share = (share - dp[t-forget] + MOD) % MOD
             dp[t] = share
         
-        know = 0
-        for i in range(n-forget+1,n+1):
-            know = (know + dp[i]) % MOD
+        # know = 0
+        # for i in range(n-forget+1,n+1):
+        #     know = (know + dp[i]) % MOD
+        know = sum(dp[n-forget+1:n+1])%MOD
+
         return know
