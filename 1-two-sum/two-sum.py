@@ -1,12 +1,9 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        dt = dict()
-
+        ds = {}
         for i in range(len(nums)):
-            compliment = target - nums[i] 
-            if compliment in dt:
-                return [dt[compliment],i]
+            if target-nums[i] in ds.keys():
+                return [i,ds[target-nums[i]]]
             else:
-                dt[nums[i]]=i
-        
-        return []
+                ds[nums[i]] = i
+        return [-1,-1]
