@@ -1,19 +1,19 @@
 class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
-        n = len(matrix)
-        m = len(matrix[0])
+        m = len(matrix) #rows
+        n = len(matrix[0]) #cols
 
-        # binary search
-        low = 0
-        high = m*n -1
-        while low<=high:
-            mid = (low+high)//2
-            rows = mid//m
-            cols = mid % m
-            if matrix[rows][cols]==target:
+        l = 0
+        r = m*n-1
+
+        while l<=r:
+            mid = (l+r)//2
+            row = mid//n
+            col = mid%n
+            if matrix[row][col]==target:
                 return True
-            elif matrix[rows][cols]<target:
-                low=mid+1
+            elif matrix[row][col]<target:
+                l = mid+1
             else:
-                high = mid-1
-        return False 
+                r = mid-1
+        return False
