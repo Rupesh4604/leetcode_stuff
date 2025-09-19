@@ -1,15 +1,8 @@
 class Solution:
     def isPowerOfTwo(self, n: int) -> bool:
-        if n <= 0:
+        # X and (X-1) = 0 if X is a power of 2 (set bit followed by zeroes; 
+        # X= 10000... and X-1 = 01111...  )
+        if n == 0:
             return False
-        if n==1:
-            return True
-        
-        def two(num):
-            while num > 1:
-                if num % 2 != 0:
-                    return False
-                num //= 2
-            return True
-        
-        return two(n)
+        # assuming n>0
+        return n&(n-1)==0
