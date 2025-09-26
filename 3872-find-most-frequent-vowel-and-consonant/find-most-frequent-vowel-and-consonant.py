@@ -1,12 +1,13 @@
 class Solution:
     def maxFreqSum(self, s: str) -> int:
-        freq = [0] * 26
-        maxVowel, maxConso = 0, 0
-        for c in s:
-            i = ord(c) - ord('a')
-            freq[i] += 1
-            if c in 'aeiou':
-                maxVowel = max(maxVowel, freq[i])
+        con = 0
+        vow = 0
+
+        str_set = set(s)
+
+        for i in str_set:
+            if i in "aeiou":
+                vow = max(vow, s.count(i))
             else:
-                maxConso = max(maxConso, freq[i])
-        return maxVowel + maxConso
+                con = max(con, s.count(i))
+        return con+vow
