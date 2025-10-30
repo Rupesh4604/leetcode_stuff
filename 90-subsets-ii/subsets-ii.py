@@ -1,18 +1,16 @@
 class Solution:
-    def helper(self,idx,nums,n,dp,ans):
-            if idx==n:
-                dp.sort()
-                ans.add(tuple(dp[:]))
-                return ans
-            dp.append(nums[idx])
-            self.helper(idx+1,nums,n,dp,ans)
-            dp.pop()
-            self.helper(idx+1,nums,n,dp,ans)
-
     def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
-        dp = []
-        ans = set()
-        n = len(nums)
+        ans = []
+        ds = []
+
+        def findSubsets(ind: int):
+            ans.append(ds[:])
+            for i in range(ind, len(nums)):
+                if i != ind and nums[i] == nums[i - 1]:
+                    continue
+                ds.append(nums[i])
+                findSubsets(i + 1)
+                ds.pop()
         nums.sort()
-        self.helper(0,nums,n,dp,ans)
+        findSubsets(0)
         return ans
