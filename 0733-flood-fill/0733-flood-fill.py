@@ -5,9 +5,10 @@ class Solution:
         preCol = image[sr][sc]
         if preCol==color:
             return image
+        
+        image[sr][sc]=color
 
         q = deque([(sr,sc)])
-
         directions = [(0,1),(0,-1),(1,0),(-1,0)]
 
         while q:
@@ -17,6 +18,5 @@ class Solution:
                 if 0<=x<m and 0<=y<n and image[x][y]==preCol:
                     image[x][y]=color
                     q.append((x,y))
-        image[sr][sc]=color
         return image
                 
