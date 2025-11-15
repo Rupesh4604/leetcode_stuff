@@ -3,6 +3,7 @@ class Solution:
         n = len(isConnected)
         visited = [0] * n
         provinces = 0
+        
         for i in range(n):
             if not visited[i]:
                 provinces +=1
